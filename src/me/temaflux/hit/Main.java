@@ -23,4 +23,8 @@ implements Listener {
     public void onDisable() {
 		if (this.Listeners != null) HandlerList.unregisterAll(Listeners);
     }
+
+	public void debug(String x) {
+		
+	}
 }

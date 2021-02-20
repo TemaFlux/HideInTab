@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="D:/libs/Paper-1.12.2-b1615.jar"/>
 	<classpathentry kind="lib" path="D:/libs/ProtocolLib.jar"/>
+	<classpathentry kind="lib" path="D:/libs/lombok-1.18.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

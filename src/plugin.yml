@@ -1,0 +1,7 @@
+name: HideInTabP
+version: 1.0.1
+description: Hide Players in TAB Menu
+author: TemaFlux
+website: www.TemaFlex.tk
+main: me.temaflux.hit.Main
+softdepend: [ProtocolLib]

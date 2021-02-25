@@ -105,4 +105,8 @@ public class FakeTeam {
 	public String getSuffix() {
 		return this.suffix;
 	}
+
+	public String getDisplayName() {
+		return this.name;
+	}
 }

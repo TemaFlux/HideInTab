@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-class PacketAccessor {
+public class PacketAccessor {
 
     private static List<String> legacyVersions = Arrays.asList("v1_7_R1","v1_7_R2","v1_7_R3","v1_7_R4","v1_8_R1","v1_8_R2","v1_8_R3","v1_9_R1","v1_9_R2","v1_10_R1","v1_11_R1","v1_12_R1");
     private static boolean CAULDRON_SERVER = false;
@@ -101,13 +101,13 @@ class PacketAccessor {
         return Integer.parseInt(version.split("_")[1]) >= 8;
     }
 
-    private static Field getNMS(String path) throws Exception {
+    public static Field getNMS(String path) throws Exception {
         Field field = packetClass.getDeclaredField(path);
         field.setAccessible(true);
         return field;
     }
 
-    static Object createPacket() {
+    public static Object createPacket() {
         try {
             return packetClass.newInstance();
         } catch (Exception e) {
@@ -116,19 +116,19 @@ class PacketAccessor {
         }
     }
 
-    static void sendPacket(Collection<? extends Player> players, Object packet) {
+    public static void sendPacket(Collection<? extends Player> players, Object packet) {
         for (Player player : players)
             sendPacket(player, packet);
     }
 
-    static void sendPacket(Player player, Object packet) {
+    public static void sendPacket(Player player, Object packet) {
         try {
             Object nmsPlayer = getHandle.invoke(player);
             Object connection = playerConnection.get(nmsPlayer);
             sendPacket.invoke(connection, packet);
+            System.out.println("sended: " + packet);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }
